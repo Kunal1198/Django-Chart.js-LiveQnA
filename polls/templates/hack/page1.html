@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include 'material/includes/material_css.html' %}
+    
+    {% include 'material/includes/material_js.html' %}
+</head>
+<body>
+    {% load material_form %} 
+    <div class="container">
+    <form method="POST">
+        <h2>Live Q/A Session</h2>
+        {% csrf_token %}
+        {% form form=form %}
+        {% endform %}
+        <button type="submit" name="_submit" class="btn">Submit</button>
+    </form>
+    </div>
+</body>
+</html>

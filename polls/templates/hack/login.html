@@ -1,0 +1,23 @@
+{% extends 'hack/base1.html' %}
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+      <small>
+        <a href="{% url 'register' %}">Register</a> |
+        <a href="#">Forgotten Your Password?</a>
+      </small>
+      <br>
+
+    <input type="submit" value="Login" class="btn btn-outline-success">
+    <p>-- OR --</p>
+    <a href="#">
+      <button type="button" name="button" class="btn btn-primary">Github</button>
+    </a>
+    <a href="#">
+      <button type="button" name="button" class="btn btn-danger">Google+</button>
+    </a>
+  </form>
+
+
+{% endblock %}

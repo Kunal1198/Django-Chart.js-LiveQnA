@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#"> Live Q/A Session </a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+
+    <form class="form-inline my-2 my-lg-0" action='#'>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='q'>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+  </ul>
+  <ul class="navbar-nav">
+    {% if request.user.is_authenticated %}
+
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <span>Hi {{ request.user|capfirst }}</span>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{% url 'edit_profile' %}">View Profile</a>
+        <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <span>Profile</span>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{% url 'edit_profile' %}">View Profile</a>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <span>Question</span>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">       
+        <a class="dropdown-item" href="{% url 'page' %}">Answer Question</a>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <span>Live Q/A Graph</span>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">       
+        <a class="dropdown-item" href="{% url 'home' %}">Graph</a>
+      </div>
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a href="{% url 'user_login' %}" class="nav-link">Login</a>
+    </li>
+    {% endif %}
+  </ul>
+  
+
+</div>
+</nav>
